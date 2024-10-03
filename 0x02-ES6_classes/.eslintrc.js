@@ -25,6 +25,13 @@ module.exports = {
         'LabeledStatement',
         'WithStatement',
       ],
+	 // Add the no-underscore-dangle rule
+    'no-underscore-dangle': [
+      'error', 
+      { 
+        allow: ['_name', '_maxStudentsSize', '_length', '_students'] // Allow specific underscore-prefixed variable names
+      }
+    ],
     },
     overrides:[
       {
