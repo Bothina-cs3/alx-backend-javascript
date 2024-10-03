@@ -1,31 +1,32 @@
 export default class Currency {
   constructor(code, name) {
-    this.code = code; // Change to no underscore
-    this.name = name; // Change to no underscore
+    this.code = code;
+    this.name = name;
   }
 
-  // Getter for code
-  get code() {
-    return this.code; // Adjusted to remove underscore
-  }
-
-  // Setter for code
-  set code(value) {
-    this.code = value; // Adjusted to remove underscore
-  }
-
-  // Getter for name
-  get name() {
-    return this.name; // Adjusted to remove underscore
-  }
-
-  // Setter for name
-  set name(value) {
-    this.name = value; // Adjusted to remove underscore
-  }
-
-  // Method to display full currency
   displayFullCurrency() {
-    return `${this.name} (${this.code})`; // Format: name (code)
+    return `${this._name} (${this._code})`;
+  }
+
+  get code() {
+    return this._code;
+  }
+
+  set code(code) {
+    if ((typeof code !== 'string') && !(code instanceof String)) {
+      throw new TypeError('Code must be a string');
+    }
+    this._code = code;
+  }
+
+  get name() {
+    return this._name;
+  }
+
+  set name(name) {
+    if ((typeof name !== 'string') && !(name instanceof String)) {
+      throw new TypeError('Name must be a string');
+    }
+    this._name = name;
   }
 }
